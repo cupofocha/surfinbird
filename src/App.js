@@ -1,10 +1,9 @@
 import './App.css';
-import './dashboard/Images'
-import Images from "./dashboard/Images";
+import Dashboard from "./dashboard/Dashboard";
 
 function App() {
   return (
-      <Images />
+      <Dashboard />
   )
   ;
 }
