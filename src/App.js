@@ -1,9 +1,19 @@
 import './App.css';
-import Dashboard from "./dashboard/Dashboard";
+import MainPage from "./mainpage/MainPage";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import LoginPage from "./login/LoginPage";
+import history from './History';
+
+
 
 function App() {
   return (
-      <Dashboard />
+        <BrowserRouter>
+              <Routes history={history}>
+                  <Route path="/" element={<MainPage />} />
+                  <Route path="/login" element={<LoginPage />} />
+              </Routes>
+        </BrowserRouter>
   )
   ;
 }

@@ -52,7 +52,7 @@ export default function Images() {
     }
 
     function handleClick() {
-        if(pageData[count].length === 0) return 0
+        if(lazyData.length === allImages.length) return 0
         for(let i = 0; i < pageData[count].length; i++){
             setLazyData(prevState => [...prevState, pageData[count][i]])
         }
