@@ -4,6 +4,8 @@ import "./LoginPage.css"
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
 import history from '../History';
+import globalVar from "../GlobalVar";
+
 
 export default function LoginPage() {
     const [formData, setFormData] = React.useState({
@@ -35,24 +37,21 @@ export default function LoginPage() {
             body: JSON.stringify(formData)
         };
 
-        fetch("http://localhost:8080/user/login", requestOptions)
+        function sleep(ms){
+            for(let t = Date.now(); Date.now() - t <= ms;);
+        }
+
+        let url = globalVar.apiServer + "user/login"
+        fetch(url, requestOptions)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if(data.state === "Successful") {
-                    sessionStorage.setItem("is_login", '1');
+                    loginSuccessful()
+                    sessionStorage.setItem("is_login", '1')
+                    sessionStorage.setItem("userId", data.userId)
                     history.push({pathname:"/"})
                     history.go()
-                    toast.success('Logged in successfully', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-            }
+                }
                 else if (data.state === "Wrong_password")
                     toast.error('Wrong password!', {
                         position: "top-center",
@@ -75,6 +74,18 @@ export default function LoginPage() {
                     })
             })
 
+    }
+
+    function loginSuccessful(){
+        toast.success('Logged in successfully', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
     }
 
     return (
@@ -118,11 +129,11 @@ export default function LoginPage() {
                 </div>
                 <div className="field">
                     <button className="button--submit">Sign in</button>
-                    <button className="button--register" onClick={() => {history.push({pathname:"/register"})
+                    <button className="button--register" onClick={() => {
+                        history.push({pathname:"/register"})
                         history.go()}}>Sign up</button>
                 </div>
             </form>
-            <ToastContainer />
         </div>
     )
 }

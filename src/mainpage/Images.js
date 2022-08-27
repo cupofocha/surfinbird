@@ -3,6 +3,7 @@ import './Image'
 import Image from "./Image";
 import "./Images.css"
 import StackGrid from "react-stack-grid";
+import globalVar from "../GlobalVar";
 
 export default function Images() {
 
@@ -13,12 +14,13 @@ export default function Images() {
     const [images, setImages] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:8080/birdImages/")
+        let url = globalVar.apiServer + "birdImages/"
+        fetch(url)
             .then(res => res.json())
             .then(data => setAllImages(data))
     }, [])
 
-    useEffect(() => {//初始化需要懒加载的数据可以滑动
+    useEffect(() => {
         setLazyData(pageData[0])
     }, [pageData])
 

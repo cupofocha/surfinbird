@@ -4,7 +4,9 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginPage from "./login/LoginPage";
 import history from './History';
 import RegisterPage from "./register/RegisterPage";
-
+import ImagePost from "./post/ImagePost"
+import {ToastContainer} from "react-toastify";
+import React from "react";
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
                   <Route path="/" element={<MainPage />} />
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/post/image/:postId" element={<ImagePost />}/>
               </Routes>
         </BrowserRouter>
   )

@@ -1,0 +1,178 @@
+.post-content{
+    display: flex;
+    margin-top: 15vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.post-image-container{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.post-image{
+    width: 60vh;
+    margin-right: 4vh;
+    border-radius: 10px;
+}
+
+.post-main{
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    width: 60vh;
+    height: 20vh;
+}
+
+.user-info{
+    display: flex;
+    border-style: solid;
+    border-color: #b1dae7;
+    border-radius: 10px;
+}
+
+.user-pic{
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.user-name{
+    padding-top: 7px;
+    padding-right: 5px;
+    margin-left: 5px;
+}
+
+.post-text{
+    border-style: solid;
+    border-color: #7c7c7d;
+    border-radius: 5px;
+    width: 60vh;
+    min-height: 25vh;
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+.bird-name{
+    padding-top: 7px;
+    padding-left: 15px;
+}
+
+.comment {
+    width: 60vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.form--comment {
+    width: 60vh;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background: #dadaf7;
+    transition: 0.3s;
+}
+
+.form--comment:focus-within {
+    background: #f0f2f5;
+    transition: 0.3s;
+}
+
+.form--comment *:focus {
+    border: none;
+    outline: none;
+    background: #f0f2f5;
+    transition: 0.3s;
+}
+
+.textarea--comment {
+    width: 60vh;
+    border-radius: 5px;
+    min-height: 7vh;
+    border-style: none;
+    background: #dadaf7;
+    transition: 0.3s;
+    resize: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form--comment > button {
+    background-color: transparent;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bolder;
+    min-height: 100%;
+    transition: 0.3s;
+}
+
+.form--comment > button:disabled {
+    pointer-events: none;
+}
+
+.form--comment > button:hover {
+    color: #fff;
+    background-color: #cdcde9;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.form--comment > button:active {
+    box-shadow: none;
+    background-color: #cdcde9;
+    transform: translateY(0);
+    transition: 0.3s;
+}
+
+.comment-list {
+    margin-top: 10px;
+    width: 60vh;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    height: 25vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.comment-list-item {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom-radius: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #7c7c7d;
+}
+
+.commenter-info {
+    display: flex;
+    height: 4vh;
+}
+
+.commenter-pic {
+    padding-left: 3px;
+    padding-top: 8px;
+}
+
+.commenter-name {
+    padding-left: 5px;
+}
+
+.comment-text {
+    width: 60vh;
+    min-height: 1vh;
+    padding-left: 6vh;
+    padding-right: 3vh;
+    word-break: break-all;
+}

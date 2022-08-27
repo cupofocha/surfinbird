@@ -8,7 +8,24 @@ export default function Navigate() {
 
     return (
         <nav className="navigate">
-            <img id="logo" className="logo" src={seagull} width={40} height={40}/>
+            <img id="logo" className="logo" src={seagull} width={40} height={40} onClick={() => {history.push({pathname:"/"})
+                history.go()}} />
+            <div className="nav-buttons-left">
+                <button className="button--nav">
+                    <span>Image</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,s5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>
+                <button className="button--nav">
+                    <span>Bird</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,s5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>
+            </div>
             <div className="search-bar">
                 <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
                     <g>
@@ -18,51 +35,53 @@ export default function Navigate() {
                 </svg>
                 <input placeholder="Search" type="search" className="input" />
             </div>
-            {sessionStorage.getItem("is_login") === '1' &&
-                <button className="button--nav">
-                <span>Profile</span>
-                <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>}
-            {sessionStorage.getItem("is_login") !== '1' &&
-                <button className="button--nav"  onClick={() => {history.push({pathname:"/login"})
-                history.go()}}>
-                <span>Login</span>
-                <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>}
-            {sessionStorage.getItem("is_login") !== '1' &&
-                <button className="button--nav" onClick={() => {history.push({pathname:"/register"})
+            <div className="nav-buttons">
+                {sessionStorage.getItem("is_login") === '1' &&
+                    <button className="button--nav">
+                    <span>Profile</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,s5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>}
+                {sessionStorage.getItem("is_login") !== '1' &&
+                    <button className="button--nav"  onClick={() => {history.push({pathname:"/login"})
                     history.go()}}>
-                <span>Register</span>
-                <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>}
-            {sessionStorage.getItem("is_login") === '1' &&
-                <button className="button--nav" onClick={()=>{sessionStorage.setItem("is_login", '0')
-                history.push("/")
-                history.go()}}>
-                <span>Logout</span>
-                <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>}
-            <button className="button--nav" onClick={()=>{
-                history.push("/about")
-                history.go()}}>
-                <span>About</span>
-                <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>
+                    <span>Login</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>}
+                {sessionStorage.getItem("is_login") !== '1' &&
+                    <button className="button--nav" onClick={() => {history.push({pathname:"/register"})
+                        history.go()}}>
+                    <span>Register</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>}
+                {sessionStorage.getItem("is_login") === '1' &&
+                    <button className="button--nav" onClick={()=>{sessionStorage.setItem("is_login", '0')
+                    history.push("/")
+                    history.go()}}>
+                    <span>Logout</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>}
+                <button className="button--nav" onClick={()=>{
+                    history.push("/about")
+                    history.go()}}>
+                    <span>About</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>
+            </div>
         </nav>
     )
 }

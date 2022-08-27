@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
 import history from '../History';
 import "./RegisterPage.css"
+import globalVar from "../GlobalVar";
 
 export default function RegisterPage() {
     const [formData, setFormData] = React.useState({
@@ -61,12 +62,14 @@ export default function RegisterPage() {
             body: JSON.stringify(newState)
         };
 
-        fetch("http://localhost:8080/user/register", requestOptions)
+        let url = globalVar.apiServer + "user/register"
+        fetch(url, requestOptions)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 if(data.state === "Success") {
                     sessionStorage.setItem("is_login", '1');
+                    sessionStorage.setItem("userId", data.userId)
                     history.push({pathname:"/"})
                     history.go()
                     toast.success('Registered successfully', {
@@ -166,7 +169,6 @@ export default function RegisterPage() {
                     <button className="register-button--submit">Sign up</button>
                 </div>
             </form>
-            <ToastContainer />
         </div>
     )
 }
