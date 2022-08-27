@@ -36,7 +36,8 @@ export default function Navigate() {
                 </svg>
             </button>}
             {sessionStorage.getItem("is_login") !== '1' &&
-                <button className="button--nav">
+                <button className="button--nav" onClick={() => {history.push({pathname:"/register"})
+                    history.go()}}>
                 <span>Register</span>
                 <svg viewBox="0 0 13 10" height="10px" width="15px">
                     <path d="M1,5 L11,5"></path>

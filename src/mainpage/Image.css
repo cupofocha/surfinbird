@@ -1,8 +1,10 @@
 
 .image > img {
     width: 30vh;
+    transition: transform 0.3s ease 0s;
 }
 
-.image {
-    width: 30vh;
+.image > img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease 0s;
 }

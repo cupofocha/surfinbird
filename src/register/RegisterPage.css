@@ -1,17 +1,9 @@
-.login-page {
+.register-page {
     display: flex;
     justify-content: center;
 }
 
-.login-sign {
-    display: flex;
-    flex-direction: column;
-    margin-top: 27vh;
-    margin-right: 20vh;
-    flex-wrap: wrap;
-}
-
-.login-slogan {
+.register-slogan {
     margin-top: 5vh;
     margin-left: 2vh;
     text-decoration: none;
@@ -20,49 +12,54 @@
     font-weight: bolder;
 }
 
-.login-logo {
+.register-sign {
+    display: flex;
+    flex-direction: column;
+    margin-top: 27vh;
+    margin-right: 20vh;
+    flex-wrap: wrap;
+}
+
+.register-logo {
     font-size: xx-large;
 }
 
 /* From uiverse.io by @alexmaracinaru */
-.card {
+.register-form-card {
     border-radius: 10px;
     margin-top: 20vh;
     width: 230px;
-    height: 300px;
+    height: 380px;
     background: #F4F6FB;
     border: 1px solid white;
     box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
     -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
     -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
-}
-
-.form {
     padding: 25px;
 }
 
-.card_header {
+.register-card_header {
     display: flex;
     align-items: center;
 }
 
-.card svg {
+.register-form-card svg {
     color: #7878bd;
     margin-bottom: 20px;
     margin-right: 5px;
 }
 
-.form_heading {
+.register-form_heading {
     padding-bottom: 20px;
     font-size: 21px;
     color: #7878bd;
 }
 
-.field {
+.register-field {
     padding-bottom: 10px;
 }
 
-.input {
+.register-input {
     border-radius: 5px;
     background-color: #e9e9f7;
     padding: 5px;
@@ -71,11 +68,11 @@
     border: 1px solid #dadaf7
 }
 
-.input:focus-visible {
+.register-input:focus-visible {
     outline: 1px solid #aeaed6;
 }
 
-.input::placeholder {
+.register-input::placeholder {
     color: #bcbcdf;
 }
 
@@ -86,32 +83,16 @@ label {
     padding-bottom: 4px;
 }
 
-.button--submit {
+.register-button--submit {
     border-radius: 5px;
     background-color: #7878bd;
     margin-top: 10px;
     font-size: 14px;
     padding: 7px 12px;
     font-weight: 500;
-    width: 130px;
     color: white;
 }
 
-.button--submit:hover {
+.register-button--submit:hover {
     background-color: #5f5f9c;
-}
-
-.button--register {
-    border-radius: 5px;
-    background-color: #00a400;
-    margin-top: 10px;
-    font-size: 14px;
-    padding: 7px 12px;
-    margin-left: 24px;
-    font-weight: 500;
-    color: white;
-}
-
-.button--register:hover {
-    background-color: #215e11;
 }
