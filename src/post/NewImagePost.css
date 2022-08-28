@@ -1,0 +1,118 @@
+.new-image-post {
+    z-index: 200;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    position: fixed;
+    height: 35vh;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: white;
+}
+
+.textarea--post {
+    width: 80vh;
+    height: 20vh;
+    display: flex;
+    border:none;
+    justify-content: center;
+    justify-items: center;
+    background: #dadaf7;
+    transition: 0.3s;
+    resize: none;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.textarea--post:focus {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #7c7c7d;
+    background: #f0f2f5;
+    transition: 0.3s;
+}
+
+.new-image-post > button {
+    margin-top: 15px;
+    width: 28%;
+    height: 80px;
+    background-color: transparent;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.new-image-post > button:disabled {
+    pointer-events: none;
+}
+
+.new-image-post > button:hover {
+    color: #fff;
+    background-color: #cdcde9;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.new-image-post > button:active {
+    box-shadow: none;
+    background-color: #cdcde9;
+    transform: translateY(0);
+    transition: 0.3s;
+}
+
+.input--image {
+    display: none;
+}
+
+.image-uploader {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+    height:71px;
+    width: 35%;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    transition: 0.3s;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bolder;
+    color: #0d0c22;
+    text-align:center;
+    line-height:4.2rem;
+}
+
+.image-uploader:disabled {
+    pointer-events: none;
+}
+
+.image-uploader:hover {
+    color: #fff;
+    background-color: #cdcde9;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.image-uploader:active {
+    box-shadow: none;
+    background-color: #cdcde9;
+    transform: translateY(0);
+    transition: 0.3s;
+}

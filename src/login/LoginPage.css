@@ -24,6 +24,15 @@
     font-size: xx-large;
 }
 
+.login-logo > img {
+    transition: 0.3s;
+}
+
+.login-logo > img:hover {
+    scale: 1.1;
+    transition: 0.3s;
+}
+
 /* From uiverse.io by @alexmaracinaru */
 .card {
     border-radius: 10px;

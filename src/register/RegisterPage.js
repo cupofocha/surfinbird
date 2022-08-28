@@ -40,8 +40,20 @@ export default function RegisterPage() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if(tempFormData.password !== tempFormData.confirmPassword){
+        if(tempFormData.password !== tempFormData.confirmPassword) {
             toast.error('Passwords do not match!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            return 0;
+        }
+        else if(tempFormData.displayName.length === 0) {
+            toast.error('Display name is empty!', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,

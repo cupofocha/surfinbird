@@ -124,6 +124,12 @@
     padding-left: 5vh;
     position: relative;
     left: 0;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    scale: 1.1;
+    transition: 0.3s;
 }
 
 .nav-buttons {

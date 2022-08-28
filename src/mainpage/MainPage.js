@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Navigate from "./Navigate";
+import Navigate from "../Navigate";
 import Images from "./Images";
 import "./MainPage.css"
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import {useParams} from "react-router-dom";
-import "../mainpage/Navigate.css"
-import Navigate from "../mainpage/Navigate";
+import "../Navigate.css"
+import Navigate from "../Navigate";
 import globalVar from "../GlobalVar"
 import "./ImagePost.css"
 import seagull from "../images/seagull.png"

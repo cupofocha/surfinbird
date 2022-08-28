@@ -24,6 +24,15 @@
     font-size: xx-large;
 }
 
+.register-logo > img {
+    transition: 0.3s;
+}
+
+.register-logo > img:hover {
+    transition: 0.3s;
+    scale: 1.1;
+}
+
 /* From uiverse.io by @alexmaracinaru */
 .register-form-card {
     border-radius: 10px;

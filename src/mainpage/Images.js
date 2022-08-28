@@ -62,6 +62,8 @@ export default function Images() {
             lazyData.map(image => {
                     return (
                         <Image
+                            postId={image.postId}
+                            displayName={image.displayName}
                             path={image.path}
                         />
                     )
@@ -77,6 +79,8 @@ export default function Images() {
                 lazyData.map(image => {
                         return (
                             <Image
+                                postId={image.postId}
+                                displayName={image.uploaderName}
                                 path={image.path}
                             />
                         )
@@ -91,7 +95,12 @@ export default function Images() {
             <StackGrid className="images" monitorImagesLoaded={true} columnWidth={300}>
                 {images}
             </StackGrid>
-            <button onClick={handleClick}>click me</button>
+            <button className="load-more" onClick={handleClick}>
+                  <span className="circle" aria-hidden="true">
+                  <span className="icon arrow"></span>
+                  </span>
+                <span className="button-text">Load More</span>
+            </button>
         </div>
     )
 }
