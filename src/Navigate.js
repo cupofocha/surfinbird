@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import "./Navigate.css";
 import seagull from "./images/seagull.png"
 import history from "./History";
-import ReactDOM from 'react-dom/client';
 import NewImagePost from "./post/NewImagePost";
 import Expanse from "react-expanse";
 
@@ -100,7 +99,7 @@ export default function Navigate() {
                                         <button className="expanse-item">???</button>
                                     </>
                                 }
-                                {sessionStorage.getItem("is_login") === '0' &&
+                                {sessionStorage.getItem("is_login") !== '1' &&
                                     <>
                                         <button className="expanse-item" onClick={() => {history.push({pathname:"/login"})
                                             history.go()}}>Login</button>
