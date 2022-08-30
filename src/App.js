@@ -7,6 +7,7 @@ import RegisterPage from "./register/RegisterPage";
 import ImagePost from "./post/ImagePost"
 import {ToastContainer} from "react-toastify";
 import React from "react";
+import Profile from "./profile/Profile"
 import NewImagePost from "./post/NewImagePost";
 import {StaticRouter} from "react-router-dom/server";
 import History from "./History";
@@ -21,7 +22,7 @@ function App() {
                       <Route path="/login" element={<LoginPage />} />
                       <Route path="/register" element={<RegisterPage />} />
                       <Route path="/post/image/:postId" element={<ImagePost />}/>
-                      <Route path="/post/image/new" element={<NewImagePost />}/>
+                      <Route path="/user/:userId" element={<Profile />}/>
                   </Routes>
             </BrowserRouter>
             <ToastContainer/>

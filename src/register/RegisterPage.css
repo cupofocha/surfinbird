@@ -1,6 +1,7 @@
 .register-page {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .register-slogan {
@@ -104,4 +105,29 @@ label {
 
 .register-button--submit:hover {
     background-color: #5f5f9c;
+}
+
+@media screen and (max-width: 500px) {
+    .register-page{
+        justify-content: center;
+    }
+
+    .register-sign{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 6vh;
+    }
+
+    .register-logo{
+        margin-left: 20vh;
+    }
+
+    .register-slogan{
+        display: none;
+    }
+
+    .register-form-card{
+        margin-top: 5vh;
+    }
 }

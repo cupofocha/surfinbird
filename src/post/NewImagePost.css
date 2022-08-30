@@ -10,7 +10,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 80vh;
+    width: 40vw;
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -20,7 +20,7 @@
 }
 
 .textarea--post {
-    width: 80vh;
+    width: 100%;
     height: 20vh;
     display: flex;
     border:none;
@@ -115,4 +115,38 @@
     background-color: #cdcde9;
     transform: translateY(0);
     transition: 0.3s;
+}
+
+@media screen and (max-width: 1300px) {
+    .new-image-post {
+        line-height: 20px;
+        width: 50vw;
+    }
+    .image-uploader {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .new-image-post {
+        line-height: 20px;
+        width: 70vw;
+    }
+    .image-uploader {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .new-image-post {
+        height: 40vh;
+        width: 95vw;
+    }
+
+    .image-uploader {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }

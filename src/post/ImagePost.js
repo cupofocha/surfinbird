@@ -14,13 +14,12 @@ export default function ImagePost(props) {
     const [image, setImage] = useState([])
     const [text, setText] = useState({})
     const [comments, setComments] = useState([])
-    const [commenterInfo, setCommenterInfo] = useState({})
     const [formData, setFormData] = React.useState({
         commenterId: "",
         text: "",
     })
 
-    let displayName = {}
+    let posterId
 
     useEffect(() => {
         formData.commenterId = sessionStorage.getItem("userId")
@@ -50,6 +49,7 @@ export default function ImagePost(props) {
                                 name = {comment.commenterName}
                                 text = {comment.text}
                                 id = {comment.id}
+                                userId = {comment.commenterId}
                             />)
                     })
                 )
@@ -111,11 +111,13 @@ export default function ImagePost(props) {
     }
 
     function Comment(props) {
+        const userId = props.userId
         return (
             <div className="comment-list-item" key={props.id}>
                 <div className="commenter-info">
                     <img className="commenter-pic" src={seagull} width={40} height={40} />
-                    <h5 className="commenter-name">{props.name}</h5>
+                    <h5 className="commenter-name" onClick={() => {history.push({pathname:"/user/"+userId})
+                        history.go()}}>{props.name}</h5>
                 </div>
                 <h5 className="comment-text">{props.text}</h5>
             </div>
@@ -123,37 +125,40 @@ export default function ImagePost(props) {
     }
 
     return (
-        <div className="post">
+        <div>
             <Navigate />
-            <div className="post-content">
-                <div className="post-image-container">
-                    <img className="post-image" src={image.path}/>
-                </div>
-                <div className="post-main">
-                    <div className="user-info">
-                        <img className="user-pic" src={seagull} width={40} height={40} />
-                        <h3 className="user-name">{posterInfo.displayName}</h3>
+            <div className="post">
+                <div className="post-content">
+                    <div className="post-image-container">
+                        <img className="post-image" src={image.path}/>
                     </div>
-                    {image.bird==="NULL" ? (
-                        <h3 className="bird-name">Uncategorized</h3>
-                    ) : (
-                        <h3 className="bird-name">{image.bird}</h3>
-                    )}
-                    <h4 className="post-text">{text.toString()}</h4>
-                    <div className="comment">
-                        <form className="form--comment" onSubmit={handleSubmit}>
-                            <textarea className="textarea--comment"
-                                      name="text"
-                                      type="text"
-                                      placeholder="Leave a comment"
-                                      id="comment"
-                                      value={formData.text}
-                                      onChange={handleChange}
-                            />
-                            <button>Comment</button>
-                        </form>
-                        <div className="comment-list">
-                            {comments}
+                    <div className="post-main">
+                        <div className="user-info">
+                            <img className="user-pic" src={seagull} width={40} height={40} />
+                            <h3 className="user-name" onClick={() => {history.push({pathname:"/user/"+posterInfo.userId})
+                                history.go()}}>{posterInfo.displayName}</h3>
+                        </div>
+                        {image.bird==="NULL" ? (
+                            <h3 className="bird-name">Uncategorized</h3>
+                        ) : (
+                            <h3 className="bird-name">{image.bird}</h3>
+                        )}
+                        <h4 className="post-text">{text.toString()}</h4>
+                        <div className="comment">
+                            <form className="form--comment" onSubmit={handleSubmit}>
+                                <textarea className="textarea--comment"
+                                          name="text"
+                                          type="text"
+                                          placeholder="Leave a comment"
+                                          id="comment"
+                                          value={formData.text}
+                                          onChange={handleChange}
+                                />
+                                <button>Comment</button>
+                            </form>
+                            <div className="comment-list">
+                                {comments}
+                            </div>
                         </div>
                     </div>
                 </div>

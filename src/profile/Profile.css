@@ -1,0 +1,116 @@
+.profile {
+    margin-top: 15vh;
+    margin-left: 20vw;
+    padding-left: 1vw;
+    width: 62vw;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-main {
+    width: 55%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.profile-posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: 50%;
+    margin-top: 8vh;
+    margin-left: 8px;
+}
+
+.post-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-post {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    margin-top: 5px;
+    margin-left: 2vw;
+    transition: 0.3s;
+}
+
+.profile-post:hover {
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+.profile-post-img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+
+}
+
+.page-jumper {
+    margin-left: 2vw;
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+}
+
+.prev-button {
+    transform: rotate(180deg);
+}
+
+.page-jumper>img {
+    transition: 0.3s;
+}
+
+.page-jumper>img:hover {
+    scale: 1.5;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 1130px) {
+    .profile {
+        margin-top: 12vh;
+        width: 95vw;
+        margin-left: 0;
+    }
+
+    .profile-main {
+        width: 95%;
+        margin-left: 1vw;
+    }
+
+    .profile-posts {
+        width: 98%;
+        height: 50%;
+        margin-top: 2vh;
+        margin-left: 2vw;
+    }
+
+    .profile-post {
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
+
+    .profile-user-name {
+        font-size: large;
+    }
+
+    .profile-user-email {
+        font-size: medium;
+    }
+
+    .page-jumper {
+        margin-left: 0;
+    }
+}

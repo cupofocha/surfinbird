@@ -6,51 +6,36 @@
     z-index: 100;
     top:0;
     background: white;
-    width: 100%;
+    width: 100vw;
     padding-top: 2vh;
     padding-bottom: 2vh;
+    border-bottom: 1px solid #7c7c7d;
+    text-align: center;
 }
 
-/* From uiverse.io by @alexruix */
-.search-bar {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
+.input--search {
     position: relative;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 70vh;
-    min-width: 10vh;
-    flex-grow: 2;
+    display:inline-block;
+    height: 5vh;
+    width: 40%;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+    background: #e0e0e0;
+    border: none;
+    border-bottom: 3px solid #7c7c7d;
+    transition: 0.3s;
 }
 
-.input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem 0 3rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
+.input--search::placeholder {
+    text-align: center;
+}
+
+.input--search:focus {
+    border: none;
     outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-}
-
-.input::placeholder {
-    padding-left: 4vh;
-    color: #9e9ea7;
-}
-
-.input:focus, input:hover {
-    outline: none;
-    border-color: rgba(177, 218, 231,0.4);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(177, 218, 231);
+    border-bottom: 3px solid #7c7c7d;
+    background: #f0f2f5;
+    transition: 0.3s;
 }
 
 .icon {
@@ -94,19 +79,6 @@
     color: #234567;
 }
 
-.button--nav svg {
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #234567;
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
-}
-
 .button--nav:hover:before {
     width: 100%;
     background: #b1dae7;
@@ -142,5 +114,60 @@
     padding-left: 5vh;
 }
 
+.expanse {
+    margin-right: 4vw;
+}
 
+.expanse-button {
+    position: relative;
+    width: 20vw;
+    height: 40px;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+    color: #234567;
+}
 
+.expanse-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.expanse-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #b1dae7;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.expanse-button:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.expanse-item {
+    height: 20px;
+    border: none;
+    color: #234567;
+    transition: 0.3s;
+}
+
+.expanse-item:hover {
+    border-bottom: 3px solid #7c7c7d;
+    transform: translateX(1px);
+}
+
+@media screen and (max-width: 500px) {
+    .expanse-button {
+        margin-right: 3vw;
+    }
+
+    .expanse-items {
+        margin-right: 3vw;
+    }
+}
