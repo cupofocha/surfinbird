@@ -1,5 +1,5 @@
 import './App.css';
-import MainPage from "./mainpage/MainPage";
+import MainPage from "./main_page/MainPage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginPage from "./login/LoginPage";
 import history from './History';
@@ -11,6 +11,7 @@ import Profile from "./profile/Profile"
 import NewImagePost from "./post/NewImagePost";
 import {StaticRouter} from "react-router-dom/server";
 import History from "./History";
+import DeleteButton from "./delete_button/DeleteButton";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                       <Route path="/register" element={<RegisterPage />} />
                       <Route path="/post/image/:postId" element={<ImagePost />}/>
                       <Route path="/user/:userId" element={<Profile />}/>
+                      <Route path="/delete" element={<DeleteButton />}/>
                   </Routes>
             </BrowserRouter>
             <ToastContainer/>

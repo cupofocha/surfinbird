@@ -82,8 +82,7 @@ export default function RegisterPage() {
                 if(data.state === "Success") {
                     sessionStorage.setItem("is_login", '1');
                     sessionStorage.setItem("userId", data.userId)
-                    history.push({pathname:"/"})
-                    history.go()
+                    window.history.back(-1)
                     toast.success('Registered successfully', {
                         position: "top-center",
                         autoClose: 5000,

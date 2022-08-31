@@ -164,10 +164,14 @@
 
 @media screen and (max-width: 500px) {
     .expanse-button {
-        margin-right: 3vw;
+        margin-right: 5vw;
     }
 
     .expanse-items {
         margin-right: 3vw;
+    }
+
+    .input--search {
+        height: 3vh;
     }
 }

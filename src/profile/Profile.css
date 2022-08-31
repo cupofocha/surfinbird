@@ -19,6 +19,7 @@
 
 .profile-posts {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;

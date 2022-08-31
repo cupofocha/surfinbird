@@ -10,6 +10,7 @@ import "./Profile.css"
 import next from "../images/next.png"
 import dot from "../images/button.png"
 import circle from "../images/circle.png"
+import DeleteButton from "../delete_button/DeleteButton";
 
 export default function Profile() {
     const userId = useParams().userId
@@ -30,7 +31,7 @@ export default function Profile() {
             .then(res => res.json())
             .then(data => setUserProfileData(data))
 
-        let commentsUrl = globalVar.apiServer + "comment/" + userId
+        let commentsUrl = globalVar.apiServer + "comment/" + userId + "/114514"
         fetch(commentsUrl)
             .then(res => res.json())
             .then(data => {
@@ -40,7 +41,8 @@ export default function Profile() {
                                 <Comment
                                     name = {comment.commenterName}
                                     text = {comment.text}
-                                    id = {comment.id}
+                                    commenterId = {comment.commenterId}
+                                    profileId = {userId}
                                 />)
                         })
                     )
@@ -76,12 +78,21 @@ export default function Profile() {
     }
 
     function Comment(props) {
-        const userId = props.id
+        const profileId = props.profileId
+        const commenterId = props.commenterId
         return (
             <div className="comment-list-item" key={userId}>
                 <div className="commenter-info">
                     <img className="commenter-pic" src={seagull} width={40} height={40} />
-                    <h5 className="commenter-name" onClick={() => {history.push({pathname:"/user/"+userId})}}>{props.name}</h5>
+                    <h5 className="commenter-name" onClick={() => {history.push({pathname:"/user/"+commenterId})
+                    history.go()}}>{props.name}</h5>
+                    {(commenterId === sessionStorage.getItem("userId") ||
+                        profileId === sessionStorage.getItem("userId")) &&
+                        <DeleteButton
+                            deletionType = "comment"
+                            id = {props.id}
+                        />
+                    }
                 </div>
                 <h5 className="comment-text">{props.text}</h5>
             </div>

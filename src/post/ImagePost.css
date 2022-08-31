@@ -22,6 +22,7 @@
 
 .post-main{
     display: flex;
+    position: relative;
     justify-items: center;
     flex-wrap: wrap;
     width: 35vw;
@@ -180,7 +181,15 @@
 
 .commenter-info {
     display: flex;
+    position: relative;
     height: 4vh;
+    width: 100%;
+}
+
+.delete-button-background {
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
 }
 
 .commenter-pic {

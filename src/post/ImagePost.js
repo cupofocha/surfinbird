@@ -7,6 +7,7 @@ import "./ImagePost.css"
 import seagull from "../images/seagull.png"
 import history from "../History";
 import {toast} from "react-toastify";
+import DeleteButton from "../delete_button/DeleteButton";
 
 export default function ImagePost(props) {
     const postId = useParams().postId
@@ -118,6 +119,12 @@ export default function ImagePost(props) {
                     <img className="commenter-pic" src={seagull} width={40} height={40} />
                     <h5 className="commenter-name" onClick={() => {history.push({pathname:"/user/"+userId})
                         history.go()}}>{props.name}</h5>
+                    {userId === sessionStorage.getItem("userId") &&
+                        <DeleteButton
+                            deletionType = "comment"
+                            id = {props.id}
+                        />
+                    }
                 </div>
                 <h5 className="comment-text">{props.text}</h5>
             </div>
@@ -133,6 +140,12 @@ export default function ImagePost(props) {
                         <img className="post-image" src={image.path}/>
                     </div>
                     <div className="post-main">
+                        {posterInfo.userId === sessionStorage.getItem("userId") &&
+                            <DeleteButton
+                                deletionType = "post"
+                                id = {postId}
+                            />
+                        }
                         <div className="user-info">
                             <img className="user-pic" src={seagull} width={40} height={40} />
                             <h3 className="user-name" onClick={() => {history.push({pathname:"/user/"+posterInfo.userId})

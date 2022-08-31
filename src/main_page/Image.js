@@ -1,6 +1,7 @@
 import React from "react"
 import "./Image.css"
 import history from "../History";
+import DeleteButton from "../delete_button/DeleteButton";
 
 export default function Image(props) {
     function handleClick(){

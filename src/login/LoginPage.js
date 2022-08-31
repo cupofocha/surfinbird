@@ -49,8 +49,7 @@ export default function LoginPage() {
                     loginSuccessful()
                     sessionStorage.setItem("is_login", '1')
                     sessionStorage.setItem("userId", data.userId)
-                    history.push({pathname:"/"})
-                    history.go()
+                    window.history.back(-1)
                 }
                 else if (data.state === "Wrong_password")
                     toast.error('Wrong password!', {

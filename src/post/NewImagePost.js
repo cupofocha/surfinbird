@@ -95,7 +95,7 @@ export default function NewImagePost() {
                         .then(res => res.json())
                         .then(data => {
                             if(data.state === "Success") {
-                                tempForm2.postId = data.id - 1
+                                tempForm2.postId = data.id
                                 console.log(tempForm2)
                                 const url = globalVar.apiServer + "birdImages/update-image-postid"
                                 fetch(url, {
