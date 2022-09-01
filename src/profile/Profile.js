@@ -43,6 +43,7 @@ export default function Profile() {
                                     text = {comment.text}
                                     commenterId = {comment.commenterId}
                                     profileId = {userId}
+                                    id = {comment.id}
                                 />)
                         })
                     )

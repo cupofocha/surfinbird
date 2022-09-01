@@ -7,6 +7,7 @@ import History from "../History";
 export default function DeleteButton(props) {
     const deletionType = props.deletionType
     const id = props.id
+    console.log(props.id)
 
     function someToasts(state){
         if(state === "Success"){
