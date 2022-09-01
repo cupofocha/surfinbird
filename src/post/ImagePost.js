@@ -8,10 +8,11 @@ import seagull from "../images/seagull.png"
 import history from "../History";
 import {toast} from "react-toastify";
 import DeleteButton from "../delete_button/DeleteButton";
+import Loading from "../Loading";
 
 export default function ImagePost(props) {
     const postId = useParams().postId
-    const [posterInfo, setPosterInfo] = useState([])
+    const [posterInfo, setPosterInfo] = useState()
     const [image, setImage] = useState([])
     const [text, setText] = useState({})
     const [comments, setComments] = useState([])
@@ -134,31 +135,33 @@ export default function ImagePost(props) {
     return (
         <div>
             <Navigate />
-            <div className="post">
-                <div className="post-content">
-                    <div className="post-image-container">
-                        <img className="post-image" src={image.path}/>
-                    </div>
-                    <div className="post-main">
-                        {posterInfo.userId === sessionStorage.getItem("userId") &&
-                            <DeleteButton
-                                deletionType = "post"
-                                id = {postId}
-                            />
-                        }
-                        <div className="user-info">
-                            <img className="user-pic" src={seagull} width={40} height={40} />
-                            <h3 className="user-name" onClick={() => {history.push({pathname:"/user/"+posterInfo.userId})
-                                history.go()}}>{posterInfo.displayName}</h3>
+            {posterInfo === undefined && <Loading />}
+            {posterInfo !== undefined &&
+                <div className="post">
+                    <div className="post-content">
+                        <div className="post-image-container">
+                            <img className="post-image" src={image.path}/>
                         </div>
-                        {image.bird==="NULL" ? (
-                            <h3 className="bird-name">Uncategorized</h3>
-                        ) : (
-                            <h3 className="bird-name">{image.bird}</h3>
-                        )}
-                        <h4 className="post-text">{text.toString()}</h4>
-                        <div className="comment">
-                            <form className="form--comment" onSubmit={handleSubmit}>
+                        <div className="post-main">
+                            {posterInfo.userId === sessionStorage.getItem("userId") &&
+                                <DeleteButton
+                                    deletionType = "post"
+                                    id = {postId}
+                                />
+                            }
+                            <div className="user-info">
+                                <img className="user-pic" src={seagull} width={40} height={40} />
+                                <h3 className="user-name" onClick={() => {history.push({pathname:"/user/"+posterInfo.userId})
+                                    history.go()}}>{posterInfo.displayName}</h3>
+                            </div>
+                            {image.bird==="NULL" ? (
+                                <h3 className="bird-name">Uncategorized</h3>
+                            ) : (
+                                <h3 className="bird-name">{image.bird}</h3>
+                            )}
+                            <h4 className="post-text">{text.toString()}</h4>
+                            <div className="comment">
+                                <form className="form--comment" onSubmit={handleSubmit}>
                                 <textarea className="textarea--comment"
                                           name="text"
                                           type="text"
@@ -167,15 +170,16 @@ export default function ImagePost(props) {
                                           value={formData.text}
                                           onChange={handleChange}
                                 />
-                                <button>Comment</button>
-                            </form>
-                            <div className="comment-list">
-                                {comments}
+                                    <button>Comment</button>
+                                </form>
+                                <div className="comment-list">
+                                    {comments}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     )
 }

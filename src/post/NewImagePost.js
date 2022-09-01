@@ -14,7 +14,7 @@ export default function NewImagePost() {
     const [labelText, setLabelText] = React.useState("")
 
     useEffect(()=>{
-        if(sessionStorage.getItem("is_login") === '0')
+        if(sessionStorage.getItem("is_login") !== '1')
         {
             history.push('/login')
             history.go()

@@ -1,0 +1,108 @@
+.search-list {
+    margin-top: 17vh;
+    margin-left: 15vw;
+    width: 70vw;
+    height: auto;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    text-align: center;
+}
+
+.search-post-img-container {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+}
+
+.search-post-img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.post-card {
+    margin: 0.5vh 1vw;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.post-card:hover {
+    scale: 1.03;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.post-card:active {
+    scale: 0.99;
+    transition: 0.3s;
+    cursor: auto;
+}
+
+.search-post-card-right {
+    margin-left: 2vw;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-post-text {
+    width: 50vw;
+}
+
+.search-post-poster-info {
+    margin-top: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.search-user-avatar-container {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    height: 20vh;
+    width: 20vh;
+    align-items: center;
+}
+
+.user-card {
+    margin: 0.5vh 1vw;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.user-card:hover {
+    scale: 1.03;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.user-card:active {
+    scale: 0.99;
+    transition: 0.3s;
+    cursor: auto;
+}
+
+.search-user-avatar {
+    width: 19vh;
+    height: 19vh;
+    margin-top: 0.5vh;
+    margin-left: 0.5vh;
+}
+
+.search-user-info {
+    margin-left: 2vw;
+}

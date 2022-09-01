@@ -4,13 +4,16 @@ import seagull from "./images/seagull.png"
 import history from "./History";
 import NewImagePost from "./post/NewImagePost";
 import Expanse from "react-expanse";
+import Search from "./images/icons8-search-30.png"
 
 
 export default function Navigate() {
     const userId = sessionStorage.getItem("userId")
     const [imagePost, setImagePost] = useState(false)
     const [show, setShow] = useState(false)
+    const [showSearchIcon, setShowSearchIcon] = useState(true)
     const [width2Small, setWidth2Smaill] = useState(false)
+    const [search, setSearch] = useState()
     let windowWidth = window.innerWidth
 
     function handleImagePostClick() {
@@ -31,6 +34,12 @@ export default function Navigate() {
         }
     },[])
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        history.push("/search/"+search)
+        history.go()
+    }
+
     return (
         <>
             <nav className="navigate">
@@ -46,7 +55,16 @@ export default function Navigate() {
                         </button>
                     </div>
                 }
-                <input type="text" required="" className="input--search" placeholder="Search"/>
+                <form className="from--search" onSubmit={handleSubmit}>
+                    <input className="input--search" placeholder="Search"
+                           onFocus={()=>setShowSearchIcon(!showSearchIcon)}
+                           onBlur={()=>setShowSearchIcon(!showSearchIcon)}
+                           onChange={e=>setSearch(e.target.value)}
+                    />
+                    <button type="submit" className="button--search">
+                        {showSearchIcon&&<img src={Search} className="search-icon" height={25}/>}
+                    </button>
+                </form>
                 {!width2Small &&
                     <div className="nav-buttons">
                         {sessionStorage.getItem("is_login") === '1' &&

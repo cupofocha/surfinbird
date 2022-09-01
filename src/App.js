@@ -8,9 +8,7 @@ import ImagePost from "./post/ImagePost"
 import {ToastContainer} from "react-toastify";
 import React from "react";
 import Profile from "./profile/Profile"
-import NewImagePost from "./post/NewImagePost";
-import {StaticRouter} from "react-router-dom/server";
-import History from "./History";
+import SearchPage from "./search_page/SearchPage"
 import DeleteButton from "./delete_button/DeleteButton";
 
 
@@ -25,6 +23,7 @@ function App() {
                       <Route path="/post/image/:postId" element={<ImagePost />}/>
                       <Route path="/user/:userId" element={<Profile />}/>
                       <Route path="/delete" element={<DeleteButton />}/>
+                      <Route path="/search/:keyword" element={<SearchPage />}/>
                   </Routes>
             </BrowserRouter>
             <ToastContainer/>

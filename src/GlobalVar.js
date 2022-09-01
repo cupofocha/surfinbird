@@ -1,5 +1,5 @@
 const globalVar = {
-    "apiServer" : "http://20.56.120.77:8080/"
+    "apiServer" : "http://localhost:8080/"
 }
 
 export default globalVar

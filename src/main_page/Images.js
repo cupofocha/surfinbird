@@ -4,6 +4,7 @@ import Image from "./Image";
 import "./Images.css"
 import StackGrid from "react-stack-grid";
 import globalVar from "../GlobalVar";
+import Loading from "../Loading";
 
 export default function Images() {
 
@@ -95,12 +96,15 @@ export default function Images() {
             <StackGrid className="images" monitorImagesLoaded={true} columnWidth={300}>
                 {images}
             </StackGrid>
-            <button className="load-more" onClick={handleClick}>
+            {images.length !== 0 &&
+                <button className="load-more" onClick={handleClick}>
                   <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
                   </span>
-                <span className="button-text">Load More</span>
-            </button>
+                    <span className="button-text">Load More</span>
+                </button>
+            }
+            {images.length === 0 && <Loading />}
         </div>
     )
 }

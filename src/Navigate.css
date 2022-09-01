@@ -13,17 +13,33 @@
     text-align: center;
 }
 
-.input--search {
+.from--search {
     position: relative;
-    display:inline-block;
+    width: 38%;
+    margin-right: 1vw;
+}
+
+.button--search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: none;
+    border: none;
+}
+
+.input--search {
     height: 5vh;
-    width: 40%;
+    width: 100%;
     font-weight: bold;
     font-family: "Ubuntu", sans-serif;
     background: #e0e0e0;
     border: none;
     border-bottom: 3px solid #7c7c7d;
+    border-radius: 3px;
     transition: 0.3s;
+    padding-left: 4vw;
+    padding-right: 4vw;
 }
 
 .input--search::placeholder {
