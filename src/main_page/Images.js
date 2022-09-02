@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useState} from 'react';
 import './Image'
 import Image from "./Image";
 import "./Images.css"
@@ -6,19 +6,53 @@ import StackGrid from "react-stack-grid";
 import globalVar from "../GlobalVar";
 import Loading from "../Loading";
 
-export default function Images() {
-
+function Images() {
     const [allImages, setAllImages] = useState([])
     const [count, setCount] = useState(1)
     const [pageData, setPageData] = useState([])
     const [lazyData, setLazyData] = useState([])
     const [images, setImages] = useState([])
+    const [onBottom, setOnBottom] = useState(false);
+
+    function onScroll() {
+        if((window.scrollY + window.innerHeight - document.body.scrollHeight)>97.5) {
+            console.log(window.scrollY + window.innerHeight - document.body.scrollHeight)
+            setOnBottom(true)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", onScroll)
+        return () => {
+            window.removeEventListener("scroll", onScroll)
+        };
+    }, [])
+
+    useEffect(() => {
+        if(onBottom) {
+            lazyLoad()
+        }
+    }, [onBottom])
 
     useEffect(() => {
         let url = globalVar.apiServer + "birdImages/"
         fetch(url)
             .then(res => res.json())
-            .then(data => setAllImages(data))
+            .then(data => {
+                let numArr = []
+                let randomizedArr = [{}]
+                for(let i = 0; i < data.length; i++){
+                    numArr.push(i)
+                }
+                for(let i = 0; i < data.length; i++){
+                    const randNum = Math.floor(Math.random()*numArr.length)
+                    console.log(numArr[randNum])
+                    console.log(data[numArr[randNum]])
+                    randomizedArr.push(data[numArr[randNum]])
+                    numArr.splice(randNum, 1)
+                }
+                setAllImages(randomizedArr)
+            })
     }, [])
 
     useEffect(() => {
@@ -37,28 +71,18 @@ export default function Images() {
         ))
     }
 
-    const handleScroll = (e) => {
-        console.log('scrolling')
-        const { scrollTop, scrollHeight, clientHeight } = e.target
-        console.log(scrollHeight - scrollTop === clientHeight)
-        return scrollHeight - scrollTop === clientHeight
-    }
-
-    const lazyLoad = (e) => {
-        if (handleScroll(e) && pageData[count]) {
-            setLazyData(prevState => {
-                prevState.push(pageData[count])
-            })
-
-            setCount(count + 1)
-        }
-    }
-
-    function handleClick() {
+    function lazyLoad() {
+        console.log("loaded")
         if(lazyData.length === allImages.length) return 0
         for(let i = 0; i < pageData[count].length; i++){
             setLazyData(prevState => [...prevState, pageData[count][i]])
         }
+        setCount(count + 1)
+        setOnBottom(false)
+    }
+
+    function handleClick() {
+        lazyLoad()
         setImages(
             lazyData.map(image => {
                     return (
@@ -92,7 +116,7 @@ export default function Images() {
     }, [lazyData])
 
     return (
-        <div onScroll={(e) => { lazyLoad(e) }}>
+        <div>
             <StackGrid className="images" monitorImagesLoaded={true} columnWidth={300}>
                 {images}
             </StackGrid>
@@ -108,3 +132,5 @@ export default function Images() {
         </div>
     )
 }
+
+export default Images
