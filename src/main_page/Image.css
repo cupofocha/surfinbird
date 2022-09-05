@@ -1,14 +1,14 @@
 .image {
     position: relative;
     width: 100%;
+    transition: transform 0.3s ease 0s;
 }
 
 .image > img {
     width: 100%;
-    transition: transform 0.3s ease 0s;
 }
 
-.image > img:hover {
+.image:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease 0s;
     cursor: pointer;
@@ -27,6 +27,15 @@
 }
 
 .display-name {
-    padding-left: 3vh;
+    margin-left: 1vw;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 5px;
     transition: 0.1s;
+    background: #7c7c7d;
+}
+
+.display-name:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }

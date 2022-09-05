@@ -217,7 +217,7 @@
     word-break: break-all;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
     .post-text {
         width: 90vw;
     }

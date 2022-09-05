@@ -6,21 +6,48 @@ import StackGrid from "react-stack-grid";
 import globalVar from "../GlobalVar";
 import Loading from "../Loading";
 
+const COUNTDOWN_SECONDS = 1
+let timing = false
+
 function Images() {
     const [allImages, setAllImages] = useState([])
     const [count, setCount] = useState(1)
     const [pageData, setPageData] = useState([])
     const [lazyData, setLazyData] = useState([])
     const [images, setImages] = useState([])
-    const [onBottom, setOnBottom] = useState(false);
+    const [onBottom, setOnBottom] = useState(false)
+    const [second, setSecond] = useState(COUNTDOWN_SECONDS)
 
+    //Scrolled to the bottom detection
     function onScroll() {
-        if((window.scrollY + window.innerHeight - document.body.scrollHeight)>95) {
-            console.log(window.scrollY + window.innerHeight - document.body.scrollHeight)
+        if((window.scrollY + window.innerHeight - document.body.scrollHeight)>85 && !timing
+        ) {
+            console.log(window.scrollY + window.outerHeight - document.body.scrollHeight)
             setOnBottom(true)
-            setTimeout(3000)
+            timing = true
         }
     }
+
+    //Timer
+    useEffect(() => {
+        let timer;
+
+        function countdown() {
+            setSecond((preSecond) => {
+                if (preSecond <= 1) {
+                    timing = false
+                    return COUNTDOWN_SECONDS
+                } else {
+                    timer = setTimeout(countdown, 1000)
+                    return preSecond - 1
+                }
+            });
+        }
+        if (timing) {
+            timer = setTimeout(countdown, 1000)
+        }
+        return () => clearTimeout(timer)
+    }, [timing]);
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll)
