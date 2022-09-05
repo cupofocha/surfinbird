@@ -15,9 +15,10 @@ function Images() {
     const [onBottom, setOnBottom] = useState(false);
 
     function onScroll() {
-        if((window.scrollY + window.innerHeight - document.body.scrollHeight)>97.5) {
+        if((window.scrollY + window.innerHeight - document.body.scrollHeight)>95) {
             console.log(window.scrollY + window.innerHeight - document.body.scrollHeight)
             setOnBottom(true)
+            setTimeout(3000)
         }
     }
 
@@ -46,8 +47,6 @@ function Images() {
                 }
                 for(let i = 0; i < data.length; i++){
                     const randNum = Math.floor(Math.random()*numArr.length)
-                    console.log(numArr[randNum])
-                    console.log(data[numArr[randNum]])
                     randomizedArr.push(data[numArr[randNum]])
                     numArr.splice(randNum, 1)
                 }
@@ -116,8 +115,12 @@ function Images() {
     }, [lazyData])
 
     return (
-        <div>
-            <StackGrid className="images" monitorImagesLoaded={true} columnWidth={300}>
+        <div className="images-container">
+            <StackGrid className="images" monitorImagesLoaded={true}
+                       columnWidth={300}
+                       gutterWidth={20}
+                       gutterHeight={10}
+            >
                 {images}
             </StackGrid>
             {images.length !== 0 &&
