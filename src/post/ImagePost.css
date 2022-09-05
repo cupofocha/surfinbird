@@ -61,6 +61,8 @@
     min-height: 25vh;
     padding-top: 15px;
     padding-left: 20px;
+    word-break: break-all;
+    white-space: pre-wrap;
 }
 
 .bird-name{
@@ -215,6 +217,7 @@
     padding-left: 6vh;
     padding-right: 3vh;
     word-break: break-all;
+    white-space: pre-wrap;
 }
 
 @media screen and (max-width: 900px) {
