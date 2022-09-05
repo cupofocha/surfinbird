@@ -16,7 +16,7 @@ export default function Navigate() {
     const [search, setSearch] = useState()
     let windowWidth = window.innerWidth
 
-    function handleImagePostClick() {
+    const handleImagePostClick = () => {
         setImagePost(prevState => {
             return !prevState
         })
@@ -131,7 +131,7 @@ export default function Navigate() {
                     </div>
                 }
             </nav>
-            {imagePost && <NewImagePost/>}
+            {imagePost && <NewImagePost click={handleImagePostClick}/>}
         </>
     )
 }

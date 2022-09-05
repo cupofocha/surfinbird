@@ -5,12 +5,13 @@ import "./NewImagePost.css";
 import globalVar from "../GlobalVar";
 import {toast} from "react-toastify";
 
-export default function NewImagePost() {
+export default function NewImagePost(props) {
     const [imageData, setImageData] = React.useState({})
     const [formData, setFormData] = React.useState({
         text:"",
         birdImageId:""
     })
+    const [tempImageUrl, setTempImageUrl] = React.useState("")
     const [labelText, setLabelText] = React.useState("")
 
     useEffect(()=>{
@@ -120,9 +121,10 @@ export default function NewImagePost() {
     }
 
     function onFileChange(e) {
+        console.log(imageData)
         updateLabel()
         setImageData(e.target.files[0])
-        console.log(imageData)
+        setTempImageUrl(URL.createObjectURL(e.target.files[0]))
     }
 
     function onTextChange(e) {
@@ -133,13 +135,31 @@ export default function NewImagePost() {
         }))
     }
 
+    const handleCancelClick = props.click
+
     return (
-        <form className="new-image-post" onSubmit={handleSubmit} >
-            <textarea className="textarea--post" name="text" onChange={onTextChange}></textarea>
-            <button className="button--cancel" onClick={()=>{history.go()}}>Cancel</button>
-            <label className="image-uploader" for="birdImage">{labelText}</label>
-            <input type="file" className="input--image" accept="image/*" id="birdImage" name="birdImage" onChange={onFileChange}/>
-            <button className="button--post">Post</button>
-        </form>
+        <div className="new-image-post-container">
+            <form className="new-image-post" onSubmit={handleSubmit}>
+                <div className="new-image-post-content">
+                    <textarea className="textarea--post"
+                              name="text"
+                              onChange={onTextChange}
+                              placeholder={"Share your thoughts!"}
+                    />
+                    {labelText === "Image Uploaded" &&
+                        <img className="new-image-post-image" src={tempImageUrl}></img>
+                    }
+                </div>
+                <button className="button--cancel" onClick={e => {
+                    e.preventDefault()
+                    handleCancelClick()
+                }}>Cancel
+                </button>
+                <label className="image-uploader" htmlFor="birdImage">{labelText}</label>
+                <input type="file" className="input--image" accept="image/*" id="birdImage" name="birdImage"
+                       onChange={onFileChange}/>
+                <button className="button--post">Post</button>
+            </form>
+        </div>
     )
 }

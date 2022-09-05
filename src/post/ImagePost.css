@@ -49,6 +49,8 @@
 
 .user-name:hover {
     cursor: pointer;
+    text-decoration: underline;
+    text-underline: #0d0c22;
 }
 
 .post-text{
@@ -203,6 +205,8 @@
 
 .commenter-name:hover {
     cursor: pointer;
+    text-decoration: underline;
+    text-underline: #0d0c22;
 }
 
 .comment-text {

@@ -1,15 +1,23 @@
+.new-image-post-container {
+    display: flex;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    margin-top: 10vh;
+}
+
 .new-image-post {
     z-index: 200;
     border-radius: 5px;
     border-style: solid;
     border-color: #7c7c7d;
-    position: fixed;
-    height: 35vh;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
     width: 40vw;
     display: flex;
     justify-content: center;
@@ -19,18 +27,53 @@
     background: white;
 }
 
-.textarea--post {
+
+.new-image-post-content {
     width: 100%;
-    height: 20vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 50vh;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: row;
+}
+
+.new-image-post-content::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f0f2f5;
+}
+
+.new-image-post-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    background-color: #f0f2f5;
+}
+
+.new-image-post-content::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    background-color: #7c7c7d;
+}
+
+.new-image-post-image {
+    width: 90%;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    margin-top: 3vh;
+}
+
+.textarea--post {
+    padding: 2vh 2vw 1vh;
+    width: 99%;
+    height: 12vh;
     display: flex;
     border:none;
     justify-content: center;
     justify-items: center;
-    background: #dadaf7;
     transition: 0.3s;
     resize: none;
-    padding-left: 20px;
-    padding-top: 10px;
     font-weight: bold;
     font-family: "Ubuntu", sans-serif;
 }
@@ -47,6 +90,7 @@
 
 .new-image-post > button {
     margin-top: 15px;
+    margin-bottom: 10px;
     width: 28%;
     height: 80px;
     background-color: transparent;
@@ -141,7 +185,6 @@
 
 @media screen and (max-width: 500px) {
     .new-image-post {
-        height: 40vh;
         width: 95vw;
     }
 
