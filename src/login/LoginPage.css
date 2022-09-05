@@ -21,6 +21,10 @@
     font-weight: bolder;
 }
 
+.login-slogan:hover {
+    text-decoration: underline;
+}
+
 .login-logo {
     font-size: xx-large;
 }

@@ -9,6 +9,7 @@ import history from "../History";
 import {toast} from "react-toastify";
 import DeleteButton from "../delete_button/DeleteButton";
 import Loading from "../Loading";
+import { useNavigate } from "react-router-dom";
 
 export default function ImagePost(props) {
     const postId = useParams().postId
@@ -20,8 +21,7 @@ export default function ImagePost(props) {
         commenterId: "",
         text: "",
     })
-
-    let posterId
+    let navigate = useNavigate()
 
     useEffect(() => {
         formData.commenterId = sessionStorage.getItem("userId")
@@ -69,7 +69,7 @@ export default function ImagePost(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if(sessionStorage.getItem("is_login") === '0')
+        if(sessionStorage.getItem("is_login") !== '1')
         {
             toast.error('Please Login first!', {
                 position: "top-center",
@@ -80,8 +80,8 @@ export default function ImagePost(props) {
                 draggable: true,
                 progress: undefined,
             })
-            history.push('/login')
-            history.go()
+            navigate('/login')
+            //window.history.go()
             return 0
         }
         else if(formData.text.length === 0) {

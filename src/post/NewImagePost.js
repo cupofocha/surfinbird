@@ -4,6 +4,7 @@ import Navigate from "../Navigate";
 import "./NewImagePost.css";
 import globalVar from "../GlobalVar";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 export default function NewImagePost(props) {
     const [imageData, setImageData] = React.useState({})
@@ -13,12 +14,21 @@ export default function NewImagePost(props) {
     })
     const [tempImageUrl, setTempImageUrl] = React.useState("")
     const [labelText, setLabelText] = React.useState("")
+    let navigate = useNavigate()
 
     useEffect(()=>{
         if(sessionStorage.getItem("is_login") !== '1')
         {
-            history.push('/login')
-            history.go()
+            toast.error('Please Login first!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate('/login')
         }
         setLabelText("Upload Image")
     },[])
@@ -110,7 +120,16 @@ export default function NewImagePost(props) {
                                             console.log("something went wrong2")
                                         }
                                     })
-                                history.go()
+                                toast.success('Posted Successfully!', {
+                                    position: "top-center",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                })
+                                window.history.back(0)
                             }
                             else {
                                 console.log("oops")

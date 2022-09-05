@@ -124,7 +124,7 @@ export default function Profile() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if(sessionStorage.getItem("is_login") === '0')
+        if(sessionStorage.getItem("is_login") !== '1')
         {
             toast.error('Please Login first!', {
                 position: "top-center",
@@ -136,7 +136,7 @@ export default function Profile() {
                 progress: undefined,
             })
             history.push('/login')
-            history.go()
+            window.history.go()
             return 0
         }
         else if(formData.text.length === 0) {
