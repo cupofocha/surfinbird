@@ -64,6 +64,42 @@ export default function RegisterPage() {
             })
             return 0;
         }
+        else if(tempFormData.email.length === 0) {
+            toast.error('Email is empty!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            return 0;
+        }
+        else if(tempFormData.password.length === 0) {
+            toast.error('Password is empty!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            return 0;
+        }
+        else if(tempFormData.confirmPassword.length === 0) {
+            toast.error('Please confirm your password!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            return 0;
+        }
 
         let newState = tempFormData
         delete newState["confirmPassword"]

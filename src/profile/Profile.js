@@ -207,16 +207,17 @@ export default function Profile() {
                     </div>
                     <div className="buttons--profile">
                         {inPerson&&
-                            <button>Edit Display Name</button>
+                            <button className="profile-button">Edit Display Name</button>
                         }
+                        {!inPerson&&
+                            <button className="profile-button">Add Friend</button>
+                        }
+                        <div className="gap"/>
                         {inPerson&&
-                            <button>Edit Email</button>
+                            <button className="profile-button">Edit Email</button>
                         }
                         {!inPerson&&
-                            <button>Add Friend</button>
-                        }
-                        {!inPerson&&
-                            <button>Message</button>
+                            <button className="profile-button">Message</button>
                         }
                     </div>
                     <div className="comment">

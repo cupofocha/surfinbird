@@ -1,7 +1,8 @@
 .profile {
+    right: 0;
+    left: 0;
+    margin: auto;
     margin-top: 15vh;
-    margin-left: 20vw;
-    padding-left: 1vw;
     width: 62vw;
     border-radius: 5px;
     border-style: solid;
@@ -9,12 +10,52 @@
     display: flex;
     justify-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .profile-main {
     width: 55%;
     margin-top: 2vh;
     margin-bottom: 2vh;
+}
+
+.buttons--profile {
+    display: flex;
+}
+
+.gap {
+    width: 10px;
+}
+
+.profile-button {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #7c7c7d;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.profile-button:disabled {
+    pointer-events: none;
+}
+
+.profile-button:hover {
+    color: #fff;
+    background-color: #cdcde9;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+.profile-button:active {
+    box-shadow: none;
+    background-color: #cdcde9;
+    transform: translateY(0);
+    transition: 0.3s;
 }
 
 .profile-posts {
