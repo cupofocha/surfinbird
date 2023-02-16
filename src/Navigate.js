@@ -90,8 +90,7 @@ export default function Navigate() {
                             <span>Logout</span>
                         </button>}
                             <button className="button--nav" onClick={() => {
-                                history.push("/about")
-                                history.go()
+                                window.open("http://about.ochawork.shop")
                             }}>
                                 <span>About</span>
                             </button>
