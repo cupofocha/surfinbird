@@ -129,7 +129,8 @@ export default function NewImagePost(props) {
                                     draggable: true,
                                     progress: undefined,
                                 })
-                                window.history.back(0)
+                                history.push("/post/image/"+data.id)
+                                history.go()
                             }
                             else {
                                 console.log("oops")
